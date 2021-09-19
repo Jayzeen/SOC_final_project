@@ -29,6 +29,15 @@ public class Product implements Serializable {
     private String pName;
     private double price;
     private int amount;
+    private String pImage;
+
+    public String getpImage() {
+        return pImage;
+    }
+
+    public void setpImage(String pImage) {
+        this.pImage = pImage;
+    }
 
     private boolean hasStock = true;
 }

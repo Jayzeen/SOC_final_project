@@ -2,8 +2,12 @@ package com.shopping.webApp.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Currency;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,11 +26,18 @@ public class ProductService {
         return pRepository.findAll();
     }
 
-    public void addNewProduct(Product product) {
+    public void addNewProduct(Product product, MultipartFile image) throws IOException {
 
-        Optional<Product> productOptional = pRepository.findProductById(product.getPId());
+        //Optional<Product> productOptional = pRepository.findProductById(product.getPId());
+        String folderPath = "src/main/resources/static/assets/pImages/";
+        byte[] bytes = image.getBytes();
+        Path path = Paths.get(folderPath + image.getOriginalFilename());
+        Files.write(path, bytes);
+
+       product.setpImage(image.getOriginalFilename());
 
         pRepository.save(product);
+
     }
 
     public void deleteProduct(Long pId){
@@ -37,7 +48,7 @@ public class ProductService {
         pRepository.deleteById(pId);
     }
 
-    public void updateStudent(Long pId, String pName, int amount, double price){
+    public void updateProduct(Long pId, String pName, int amount, double price){
         Product product = pRepository.findById(pId).orElseThrow(
                 () -> new IllegalStateException("Product with ID - " + pId + " does not exists")
         );
