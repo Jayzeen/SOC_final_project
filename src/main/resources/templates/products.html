@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <!--Bootstrap CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!--Slick slider CDN-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <!-- Owl Carousel File -->
+    <link rel="stylesheet" type="text/css" th:href="@{plugins/OwlCarousel2-2.2.1/owl.carousel.css}">
+
+    <!--Custom Stylesheet-->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="super_container">
+
+    <!--Header section-->
+    <header class="header trans_300">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-12 text-center">
+                    <h2 class="my-md-3 site-title text-white"><a class= "text-white" th:href="@{/home}">Online Shopping</a></h2>
+                </div>
+            </div>
+        </div>
+
+        <!--NAVIGATION BAR -->
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <div class="nav-links">
+                <a href="#" target="">Home</a>
+                <a th:href="@{/products}" target="">Products</a>
+                <a href="#" target="">Promotions</a>
+                <a href="#" target="">Payments</a>
+                <a href="#" target="">Tracking</a>
+            </div>
+
+            <ul class="navbar_user">
+                <li><a href=""><i class="fas fa-search  p-2" aria-hidden="true"></i></a></li>
+                <li class="checkout">
+                    <a href="#">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span id="checkout_items" class="checkout_items">2</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </header>
+
+
+<!-- Products-->
+<div class="new_arrivals">
+    <div class="container">
+
+        <div class="row">
+            <div class="col text-center">
+                <div class="section_title new_arrivals_title">
+                    <h2>Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col text-center">
+                <div class="new_arrivals_sorting">
+                    <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
+                        <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active is-checked" data-filter="*">
+                            all
+                        </li>
+
+                        <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active" data-filter=".laptop">
+                            laptops
+                        </li>
+                        <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active" data-filter=".accessories">
+                            accessories
+                        </li>
+                        <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active" data-filter=".phone">
+                            mobile devices
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="product-grid"
+                     data-isotope='{"itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+                    <!-- Product 1-->
+                    <div class="product-item laptop">
+                        <div class="product discount product_filter">
+                            <div class="product_image">
+                                <img src="../assets/laptops.png" alt="laptops">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                <span>-$ 50</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Acer Dell inspiron 5000</a></h6>
+                                <div class="product_price">$ 200.00<span>$ 250</span></div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 2-->
+                    <div class="product-item accessories">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="../assets/p2.jpg" alt="graphic_pad">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_bubble product_bubble_left product_bubble_green
+                                    d-flex flex-column align-items-center">
+                                <span>New</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Huion 630p Graphics Pad</a></h6>
+                                <div class="product_price">$ 50.00</div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 3-->
+                    <div class="product-item phone">
+                        <div class="product discount product_filter">
+                            <div class="product_image">
+                                <img src="../assets/phone.jpg" alt="phone">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                <span>-$ 50</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Xia0mi Redmi Note 9s</a></h6>
+                                <div class="product_price">$ 100.00<span>$ 150</span></div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 4-->
+                    <div class="product-item accessories">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="../assets/earphone.jpg" alt="accesories">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                <span>Sale</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Beats Earphones</a></h6>
+                                <div class="product_price">$ 50.00</div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 5-->
+                    <div class="product-item laptop">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="../assets/p3.jpg" alt="laptops">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_bubble product_bubble_left product_bubble_green
+                                    d-flex flex-column align-items-center">
+                                <span>New</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Acer Aspire E-15</a></h6>
+                                <div class="product_price">$ 400.00</div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 1-->
+                    <div class="product-item laptop">
+                        <div class="product discount product_filter">
+                            <div class="product_image">
+                                <img src="../assets/laptops.png" alt="laptops">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                <span>-$ 50</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Acer Dell inspiron 5000</a></h6>
+                                <div class="product_price">$ 200.00<span>$ 250</span></div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 2-->
+                    <div class="product-item accessories">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="../assets/p2.jpg" alt="graphic_pad">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Huion 630p Graphics Pad</a></h6>
+                                <div class="product_price">$ 50.00</div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 3-->
+                    <div class="product-item phone">
+                        <div class="product discount product_filter">
+                            <div class="product_image">
+                                <img src="../assets/phone.jpg" alt="phone">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                <span>-$ 50</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Xia0mi Redmi Note 9s</a></h6>
+                                <div class="product_price">$ 100.00<span>$ 150</span></div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 4-->
+                    <div class="product-item accessories">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="../assets/earphone.jpg" alt="accesories">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                <span>Sale</span>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Beats Earphones</a></h6>
+                                <div class="product_price">$ 50.00</div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+                    <!-- Product 5-->
+                    <div class="product-item laptop">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="../assets/p3.jpg" alt="laptops">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#">Acer Aspire E-15</a></h6>
+                                <div class="product_price">$ 400.00</div>
+                            </div>
+                        </div>
+                        <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify">Lorem, ipsum dolor sit amet consectetur
+                        adipisicing elit. Ullam eius harum rerum mollitia voluptatum
+                        ipsum maxime ea delectus accusantium architecto hic eligendi
+                        vitae atque nemo quod, alias aperiam cumque dolores!</p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Desktop PC</a></li>
+                        <li><a href="#">Laptop</a></li>
+                        <li><a href="#">Graphic Tablets</a></li>
+                        <li><a href="#">Earphones</a></li>
+                        <li><a href="#">SSD</a></li>
+                        <li><a href="#">Pen Drives</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+                        <a href="#">Jayzeen</a>.
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
+    <!--JS files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+    <!--Font Awesome CDN-->
+    <script src="https://kit.fontawesome.com/1c0abe1880.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <!-- Isotope JS File -->
+    <script th:src="@{plugins/Isotope/isotope.pkgd.min.js}"></script>
+    <!-- Owl Carousel JS File -->
+    <script th:src="@{plugins/OwlCarousel2-2.2.1/owl.carousel.js}"></script>
+
+</body>
+
+</html>

@@ -35,6 +35,11 @@ public class ProductController {
         return "index";
     }
 
+    @GetMapping("/products")
+    public String productPage(Model model) {
+        return "products";
+    }
+
     @GetMapping("/addProduct")
     public String addProduct(Model model) {
         model.addAttribute("product", new Product());
