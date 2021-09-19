@@ -26,7 +26,7 @@
 
     <div class="super_container">
     <!--Header section-->
-    <header>
+    <header class="header trans_300">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-12 col-12">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-12 text-center">
-                    <h2 class="my-md-3 site-title text-white">Online Shopping</h2>
+                    <h2 class="my-md-3 site-title text-white"><a class= "text-white" th:href="@{/index}">Online Shopping</a></h2>
                 </div>
                 <div class="col-md-4 col-12 text-right">
                     <p class="my-md-4 header-links">
@@ -53,117 +53,426 @@
         </div>
 
         <!--NAVIGATION BAR -->
-        <div class="container-fluid p-0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Categories</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Payments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Tracking</a>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
 
-                    <div class="navbar-nav">
-                        <li class="nav-item border rounded-circle mx-2 search-icon">
-                            <i class="fas fa-search p-2"></i>
-                        </li>
-                        <li class="nav-item border rounded-circle mx-2 basket-icon">
-                            <i class="fas fa-shopping-cart p-2"></i>
-                        </li>
-                    </div>
-                </div>
-            </nav>
+            <div class="nav-links">
+                <a href="#" target="">Home</a>
+                <a href="#" target="">Products</a>
+                <a href="#" target="">Promotions</a>
+                <a href="#" target="">Payments</a>
+                <a href="#" target="">Tracking</a>
+            </div>
+
+            <ul class="navbar_user">
+                <li><a href=""><i class="fas fa-search  p-2" aria-hidden="true"></i></a></li>
+                <li><a th:href="@{/login}" target="_blank"><i class="fas fa-user p-2"
+                                                              aria-hidden="true"></i></a></li>
+                <li class="checkout">
+                    <a href="#">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span id="checkout_items" class="checkout_items">2</span>
+                    </a>
+                </li>
+            </ul>
+
         </div>
+
     </header>
     <!--/Header closing-->
 
     <!--Main Section-->
     <main>
 
+        <!--Main Section-->
         <!--First Slider-->
-        <div class="container-fluid p-0">
-            <div class="site-slider">
-                <div class="slider-one">
-                    <div>
-                        <img src="../assets/1.jpg" class="img-fluid" alt="Banner 1">
+        <div class="main_slider" th:style="'background-image:url(' + @{/assets/main.jpg} + ');'">
+            <div class="container fill_height">
+                <div class="row align-items-center fill_height">
+                    <div class="col">
+                        <div class="main_slider_content">
+                            <h6>Digital Electronics 2021</h6>
+                            <h1>Get upto <br>20% off</h1>
+                            <div class="blue_button shop_now_button">
+                                <a href="#">Shop Now</a>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <img src="../assets/2.jpg" class="img-fluid" alt="Banner 1">
-                    </div>
-                    <div>
-                        <img src="../assets/3.jpg" class="img-fluid" alt="Banner 1">
-                    </div>
-                </div>
-                <div class="slider-btn">
-                    <span class="prev position-top">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="next position-top right-0">
-                        <i class="fas fa-chevron-right"></i>
-                    </span>
                 </div>
             </div>
         </div>
         <!--/First Slider-->
 
-        <!--Second Slider-->
-        <div class="container-fluid p-0">
-            <div class="site-slider-two px-md-4">
-                <div class="row slider-two text-center py-md-4">
-                    <div class="col-md-2 product pt-md-5 pt-4">
-                        <img src="../assets/earphone.jpg" class="img-fluid" alt="Product 1" />
-                        <span class="border site-btn btn-span">LAPTOPS</span>
+        <!-- Banner-->
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="banner_item align-item-corner" th:style="'background-image:url(' + @{/assets/1.jpg} + ');'">
+                            <div class="banner_category">
+                                <a href="#">LAPTOPS</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-2 product pt-md-5 pt-2">
-                        <img src="../assets/earphone.jpg" class="img-fluid" alt="Product 2" />
-                        <span class="border site-btn btn-span">EARPHONES</span>
+
+                    <div class="col-md-4">
+                        <div class="banner_item align-item-corner" th:style="'background-image:url(' + @{/assets/2.jpg} + ');'">
+                            <div class="banner_category">
+                                <a href="#">GRAPHIC ACCESSORIES</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-2 product pt-md-5 pt-2">
-                        <img src="../assets/phone.jpg" class="img-fluid" alt="Product 3" />
-                        <span class="border site-btn btn-span">PHONES</span>
+
+                    <div class="col-md-4">
+                        <div class="banner_item align-item-corner" th:style="'background-image:url(' + @{/assets/3.jpg} + ');'">
+                            <div class="banner_category">
+                                <a href="#">MOBILE DEVICES</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-2 product pt-md-5 pt-2">
-                        <img src="../assets/graphis card.jpg" class="img-fluid" alt="Product 4" />
-                        <span class="border site-btn btn-span">GRAPHIC CARDS</span>
-                    </div>
-                    <div class="col-md-2 product pt-md-5 pt-2">
-                        <img src="../assets/1.jpg" class="img-fluid" alt="Product 5" />
-                        <span class="border site-btn btn-span">DEKTOP COMPUTERS</span>
-                    </div>
-                    <div class="col-md-2 product pt-md-5 pt-2">
-                        <img src="../assets/earphone.jpg" class="img-fluid" alt="Product 6" />
-                        <span class="border site-btn btn-span">SUBWOOFERS</span>
-                    </div>
-                </div>
-                <div class="slider-btn">
-                    <span class="prev position-top">
-                        <i class="fas fa-chevron-left fa-2x text-secondary"></i>
-                    </span>
-                    <span class="next position-top right-0">
-                        <i class="fas fa-chevron-right fa-2x text-secondary"></i>
-                    </span>
+
                 </div>
             </div>
         </div>
-        <!--/Second Slider-->
 
+        <!-- New Arrivals-->
+        <div class="new_arrivals">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="section_title new_arrivals_title">
+                            <h2>New Arrivals</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <div class="new_arrivals_sorting">
+                            <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
+                                <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active is-checked" data-filter="*">
+                                    all
+                                </li>
+
+                                <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active" data-filter=".laptop">
+                                    laptops
+                                </li>
+                                <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active" data-filter=".accessories">
+                                    accessories
+                                </li>
+                                <li class="grid_sorting_button button d-flex fex-column
+                                justify-content-center align-items-center active" data-filter=".phone">
+                                    mobile devices
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="product-grid"
+                             data-isotope='{"itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+                            <!-- Product 1-->
+                            <div class="product-item laptop">
+                                <div class="product discount product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/laptops.png" alt="laptops">
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                        <span>-$ 50</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Acer Dell inspiron 5000</a></h6>
+                                        <div class="product_price">$ 200.00<span>$ 250</span></div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 2-->
+                            <div class="product-item accessories">
+                                <div class="product product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/p2.jpg" alt="graphic_pad">
+                                    </div>
+                                    <div class="favorite"></div>
+                                    <div class="product_bubble product_bubble_left product_bubble_green
+                                    d-flex flex-column align-items-center">
+                                        <span>New</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Huion 630p Graphics Pad</a></h6>
+                                        <div class="product_price">$ 50.00</div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 3-->
+                            <div class="product-item phone">
+                                <div class="product discount product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/phone.jpg" alt="phone">
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                        <span>-$ 50</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Xia0mi Redmi Note 9s</a></h6>
+                                        <div class="product_price">$ 100.00<span>$ 150</span></div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 4-->
+                            <div class="product-item accessories">
+                                <div class="product product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/earphone.jpg" alt="accesories">
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                        <span>Sale</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Beats Earphones</a></h6>
+                                        <div class="product_price">$ 50.00</div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 5-->
+                            <div class="product-item laptop">
+                                <div class="product product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/p3.jpg" alt="laptops">
+                                    </div>
+                                    <div class="favorite"></div>
+                                    <div class="product_bubble product_bubble_left product_bubble_green
+                                    d-flex flex-column align-items-center">
+                                        <span>New</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Acer Aspire E-15</a></h6>
+                                        <div class="product_price">$ 400.00</div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 1-->
+                            <div class="product-item laptop">
+                                <div class="product discount product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/laptops.png" alt="laptops">
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                        <span>-$ 50</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Acer Dell inspiron 5000</a></h6>
+                                        <div class="product_price">$ 200.00<span>$ 250</span></div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 2-->
+                            <div class="product-item accessories">
+                                <div class="product product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/p2.jpg" alt="graphic_pad">
+                                    </div>
+                                    <div class="favorite"></div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Huion 630p Graphics Pad</a></h6>
+                                        <div class="product_price">$ 50.00</div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 3-->
+                            <div class="product-item phone">
+                                <div class="product discount product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/phone.jpg" alt="phone">
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                        <span>-$ 50</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Xia0mi Redmi Note 9s</a></h6>
+                                        <div class="product_price">$ 100.00<span>$ 150</span></div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 4-->
+                            <div class="product-item accessories">
+                                <div class="product product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/earphone.jpg" alt="accesories">
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    <div class="product_bubble product_bubble_right product_bubble_blue
+                                    d-flex flex-column align-items-center">
+                                        <span>Sale</span>
+                                    </div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Beats Earphones</a></h6>
+                                        <div class="product_price">$ 50.00</div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+                            <!-- Product 5-->
+                            <div class="product-item laptop">
+                                <div class="product product_filter">
+                                    <div class="product_image">
+                                        <img src="../assets/p3.jpg" alt="laptops">
+                                    </div>
+                                    <div class="favorite"></div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">Acer Aspire E-15</a></h6>
+                                        <div class="product_price">$ 400.00</div>
+                                    </div>
+                                </div>
+                                <div class="blue_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--Deal of the week-->
+        <div class="deal_Of_the_week">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="deal_of_the_week_img">
+                            <img class="img-fluid" src="../assets/deal1.jpg" alt="dealoftheweek">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right deal_of_the_week_col">
+                        <div class="deal_of_the_week_content d-flex flex-column align-items-center float-right">
+                            <div class="section_title">
+                                <h2>Deal of the Week</h2>
+                            </div>
+                            <ul class="timer">
+                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                    <div id="day" class="timer_num">03</div>
+                                    <div class="timer_unit">Day</div>
+                                </li>
+                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                    <div id="hour" class="timer_num">12</div>
+                                    <div class="timer_unit">hours</div>
+                                </li>
+                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                    <div id="minute" class="timer_num">30</div>
+                                    <div class="timer_unit">mins</div>
+                                </li>
+                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                    <div id="second" class="timer_num">30</div>
+                                    <div class="timer_unit">sec</div>
+                                </li>
+                            </ul>
+
+                            <div class="blue_button deal_of_the_week_button"><a href="#">Shop now</a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Benefits-->
+        <div class="benefit">
+            <div class="container">
+                <div class="row benefit_row">
+
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon">
+                                <i class="fa fa-truck" aria-hidden="true"></i>
+                            </div>
+                            <div class="benefit_content">
+                                <h6>Free Shipping</h6>
+                                <p>Delivered to your door step</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon">
+                                <i class="fa fa-undo" aria-hidden="true"></i>
+                            </div>
+                            <div class="benefit_content">
+                                <h6>30 day Return Policy</h6>
+                                <p>We care To give you our best</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon">
+                                <i class="fa fa-money" aria-hidden="true"></i>
+                            </div>
+                            <div class="benefit_content">
+                                <h6>Cash on Delivery</h6>
+                                <p>We trust out customers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="benefit_content">
+                                <h6>Open All week </h6>
+                                <p>8.00 am to 8.00 pm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     </main>
     <!--/Main Section-->
