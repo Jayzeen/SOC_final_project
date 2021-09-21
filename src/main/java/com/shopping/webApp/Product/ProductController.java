@@ -64,4 +64,21 @@ public class ProductController {
         return "redirect:/listProduct";
     }
 
+    @GetMapping("/editProduct/{id}")
+    public String editProduct(Model model, @PathVariable Long id){
+        model.addAttribute("p", pService.getProductById(id));
+
+        return "editProduct";
+    }
+
+    @PostMapping("/updateProduct/{id}")
+    public String updateProduct(@ModelAttribute("updatedProduct") Product updatedProduct, @PathVariable Long id ){
+        Product prod =pService.getProductById(id);
+        prod.setPName(updatedProduct.getPName());
+        prod.setPrice(updatedProduct.getPrice());
+        pService.updateProduct(prod);
+
+        return "redirect:/listProduct";
+    }
+
 }

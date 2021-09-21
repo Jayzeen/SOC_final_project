@@ -26,6 +26,10 @@ public class ProductService {
         return pRepository.findAll();
     }
 
+    public Product getProductById(Long id){
+       return pRepository.findById(id).get();
+    }
+
     public void addNewProduct(Product product, MultipartFile image) throws IOException {
 
         //Optional<Product> productOptional = pRepository.findProductById(product.getPId());
@@ -34,7 +38,7 @@ public class ProductService {
         Path path = Paths.get(folderPath + image.getOriginalFilename());
         Files.write(path, bytes);
 
-       product.setpImage(image.getOriginalFilename());
+        product.setpImage(image.getOriginalFilename());
 
         pRepository.save(product);
 
@@ -48,24 +52,9 @@ public class ProductService {
         pRepository.deleteById(pId);
     }
 
-    public void updateProduct(Long pId, String pName, int amount, double price){
-        Product product = pRepository.findById(pId).orElseThrow(
-                () -> new IllegalStateException("Product with ID - " + pId + " does not exists")
-        );
+    public void updateProduct( Product p){
 
-        //Checking if name is not null and also not same
-        if( pName != null && !Objects.equals(product.getPName(), pName)) {
-            product.setPName(pName);
-        }
-
-        if( amount > 0 ){
-            product.setAmount(amount);
-        }
-
-        if ( price > 0){
-            product.setPrice(price);
-        }
-
+        pRepository.save(p);
     }
 
 }
