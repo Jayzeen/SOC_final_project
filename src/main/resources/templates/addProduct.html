@@ -68,6 +68,25 @@
                     </div>
 
                     <div class="form-group">
+                        <label> Product stock amount </label>
+                        <input
+                                type="text"
+                                name="amount"
+                                class="form-control"
+                                placeholder="Enter Product stock amount"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Product Category </label>
+                        <select th:field="*{category}">
+                            <option th:value="laptops" th:text="'laptops'"></option>
+                            <option th:value="accessories" th:text="'accessories'"></option>
+                            <option th:value="phone" th:text="'phone'"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label> Product Image </label>
                         <input
                                 type="file"

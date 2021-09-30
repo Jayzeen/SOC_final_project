@@ -39,6 +39,8 @@ public class ProductController {
 
     @GetMapping("/products")
     public String productPage(Model model) {
+        List<Product> listProducts = pService.getProducts();
+        model.addAttribute("listProduct", listProducts);
         return "products";
     }
 
@@ -76,6 +78,8 @@ public class ProductController {
         Product prod =pService.getProductById(id);
         prod.setPName(updatedProduct.getPName());
         prod.setPrice(updatedProduct.getPrice());
+        prod.setAmount(updatedProduct.getAmount());
+        prod.setCategory(updatedProduct.getCategory());
         pService.updateProduct(prod);
 
         return "redirect:/listProduct";

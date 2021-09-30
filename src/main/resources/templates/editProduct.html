@@ -54,7 +54,8 @@
                                 type="text"
                                 name="pName"
                                 class="form-control"
-                                placeholder="Enter Product Name"
+                                th:value="${p.PName}"
+                                th:placeholder="${p.PName}"
                         />
                     </div>
 
@@ -64,8 +65,29 @@
                                 type="text"
                                 name="price"
                                 class="form-control"
-                                placeholder="Enter Product price"
+                                th:value="${p.price}"
+                                th:placeholder="${p.price}"
                         />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Product stock amount </label>
+                        <input
+                                type="text"
+                                name="amount"
+                                class="form-control"
+                                th:value="${p.amount}"
+                                th:placeholder="${p.amount}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Product Category </label>
+                        <select th:field="${p.category}">
+                            <option th:value="laptops" th:text="'laptops'"></option>
+                            <option th:value="accessories" th:text="'accessories'"></option>
+                            <option th:value="phone" th:text="'phone'"></option>
+                        </select>
                     </div>
 
 <!--                    <div class="form-group">-->

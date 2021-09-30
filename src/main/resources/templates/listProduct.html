@@ -53,6 +53,8 @@
                     <th>PId</th>
                     <th>PName</th>
                     <th>Price</th>
+                    <th>Amount</th>
+                    <th>Category</th>
                     <th>Image</th>
                 </tr>
                 </thead>
@@ -62,6 +64,8 @@
                     <td th:text="${product.PId}">PId</td>
                     <td th:text="${product.PName}">PName</td>
                     <td th:text="${product.price}">Price</td>
+                    <td th:text="${product.amount}">Amount</td>
+                    <td th:text="${product.category}">Category</td>
                     <td><img th:src="@{'assets/pImages/' + ${product.pImage}}" alt=""> </td>
                     <td>
                         <a th:href="@{/editProduct/{id}(id=${product.getPId()})}" class = "btn btn-primary"> Edit </a>
