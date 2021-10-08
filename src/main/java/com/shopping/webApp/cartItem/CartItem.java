@@ -1,5 +1,6 @@
 package com.shopping.webApp.cartItem;
 
+import com.shopping.webApp.Customer.Customer;
 import com.shopping.webApp.Product.Product;
 import lombok.*;
 
@@ -22,7 +23,9 @@ public class CartItem {
     @JoinColumn(name = "pId")
     private Product product;
 
-    private String cEmail = "1234@gmail.com";
+    @ManyToOne
+    @JoinColumn(name = "cId")
+    private Customer customer;
 
     private int amount;
 
