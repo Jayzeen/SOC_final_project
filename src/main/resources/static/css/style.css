@@ -584,7 +584,9 @@ input::placeholder{
 }
 .add_to_cart_button{
     width: 100%;
-    visibility: hidden;
+    visibility: visible;
+    position: absolute;
+    bottom: 0;
     opacity: 0;
     transition: all 0.3s ease;
 }

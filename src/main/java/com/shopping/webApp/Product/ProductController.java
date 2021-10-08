@@ -32,8 +32,17 @@ public class ProductController {
         return "login";
     }
 
+    @GetMapping("/")
+    public String indexPage(Model model) {
+        List<Product> listProducts = pService.getProducts();
+        model.addAttribute("listProduct", listProducts);
+        return "index";
+    }
+
     @GetMapping("/home")
     public String homePage(Model model) {
+        List<Product> listProducts = pService.getProducts();
+        model.addAttribute("listProduct", listProducts);
         return "index";
     }
 
