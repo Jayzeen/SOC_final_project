@@ -176,7 +176,7 @@ input::placeholder{
 /*Navigation menu */
 
 .header{
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -1005,6 +1005,13 @@ input::placeholder{
         margin-bottom: 0;
     }
 
+    .cart_text.h2{
+        font-size: 28px;
+    }
+    .cart_text.h3{
+        font-size: 22px;
+    }
+
 }
 
 @media only screen and (max-width:767px){
@@ -1047,6 +1054,12 @@ input::placeholder{
     .nav > .nav-links > a {
         font-size: 13px;
     }
+    .cart_text.h2{
+        font-size: 22px;
+    }
+    .cart_text.h3{
+        font-size: 18px;
+    }
 
 }
 
@@ -1074,6 +1087,12 @@ input::placeholder{
     }
     .deal_of_the_week{
         margin-top: 20px;
+    }
+    .cart_text.h2{
+        font-size: 20px;
+    }
+    .cart_text.h3{
+        font-size: 16px;
     }
 
 }

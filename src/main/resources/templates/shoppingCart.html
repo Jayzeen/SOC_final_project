@@ -75,77 +75,67 @@
             <div class="row">
                 <div class="col text-center">
                     <div class="section_title new_arrivals_title">
-                        <h2>Products</h2>
+                        <h2>Shopping cart</h2>
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center">
-                <div class="col text-center">
-                    <div class="new_arrivals_sorting">
-                        <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-                            <li class="grid_sorting_button button d-flex fex-column
-                                justify-content-center align-items-center active is-checked" data-filter="*">
-                                all
-                            </li>
-
-                            <li class="grid_sorting_button button d-flex fex-column
-                                justify-content-center align-items-center active" data-filter=".laptops">
-                                laptops
-                            </li>
-                            <li class="grid_sorting_button button d-flex fex-column
-                                justify-content-center align-items-center active" data-filter=".accessories">
-                                accessories
-                            </li>
-                            <li class="grid_sorting_button button d-flex fex-column
-                                justify-content-center align-items-center active" data-filter=".phone">
-                                mobile devices
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
 
         </div>
     </div>
 
-    <div>
-        <h2>Your shopping cart</h2>
-    </div>
-
-    <div class="row">
-        <div class="col">
+    <div class="row m-1">
+        <div class="col-sm-8">
             <th:block th:each="item, status: ${cartItems}">
                 <div class="row border rounded" th:with="product = ${item.product}">
-                    <div class="col">
+                    <div class="col-1">
                         <div>[[${status.count}]]</div>
-                        <div>Remove Icon</div>
+                        <div><a class="fas fa-trash icon-dark" th:href="@{/}"></a></div>
                     </div>
 
-                    <div class="col">
-                        <img th:src="@{'assets/pImages/' + ${product.pImage}}">
+                    <div class="col-3">
+                        <img class="card-img" th:src="@{'assets/pImages/' + ${product.pImage}}">
                     </div>
 
-                    <div class="col">
+                    <div class="col-6">
                         <div>
                             <a>
                                 <b>[[${product.PName}]]</b>
                             </a>
                         </div>
+
+                        <div><input type="number" th:value="${item.amount}" class="form-control"/></div>
+
+                        <div>
+                            <span>X</span>
+                            <span>[[${product.price}]]</span>
+                        </div>
+                        <div>
+                            <span> =</span> <span class="h4 product_price">[Subtotal]</span>
+                        </div>
+
                     </div>
 
-
                 </div>
+                <div class="row m-1">&nbsp;</div>
             </th:block>
         </div>
 
-        <div class="col">
-
+        <div class="col-sm-4" th:unless="${#lists.isEmpty(cartItems)}">
+            <div>
+                <span class="cart_text h3">Estimated Total</span>
+            </div>
+            <div class="mt-2">
+                <span class="cart_text h2" >[Total Amount]</span>
+            </div>
+            <div class=" mt-2">
+                <button class="btn btn-primary p-2 mt-2">Check Out</button>
+            </div>
         </div>
     </div>
 
-
+    <div th:if="${#lists.isEmpty(cartItems)}">
+        <h3> Your shopping cart is empty</h3>
+    </div>
 
     <!-- Site footer -->
     <footer class="site-footer">

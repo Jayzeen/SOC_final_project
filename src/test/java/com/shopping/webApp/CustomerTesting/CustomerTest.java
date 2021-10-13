@@ -24,9 +24,9 @@ public class CustomerTest {
     public void addOneCustomer(){
         Customer newCustomer = new Customer();
 
-        newCustomer.setCId(2L);
-        newCustomer.setCName("smith");
-        newCustomer.setCEmail("smith@gmail.com");
+        newCustomer.setCId(3L);
+        newCustomer.setCName("angel");
+        newCustomer.setCEmail("angel@gmail.com");
 
         Customer savedCustomer = custRepo.save(newCustomer);
 
