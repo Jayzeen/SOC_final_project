@@ -29,5 +29,11 @@ public class CartItem {
 
     private int amount;
 
+//    Calculating subtotal of products in shopping cart
+    @Transient
+    public float getSubTotal() {
+        return (float) (this.product.getPrice() * amount);
+    }
+
 
 }

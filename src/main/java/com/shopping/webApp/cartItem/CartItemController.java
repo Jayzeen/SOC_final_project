@@ -24,7 +24,8 @@ public class CartItemController {
     @GetMapping("/shoppingCart")
     public String showShoppingCart(Model model){
 
-        Customer customer = customerService.getCustomerById(3L);
+//        Added a hard coded customer for testing purposes
+        Customer customer = customerService.getCustomerById(1L);
 
         List<CartItem> cartItems = cartService.listCartItems(customer);
 
