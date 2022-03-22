@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
     function initTimer() {
         if ($('.timer').length) {
 
-            var target_date = new Date("September 16 2021").getTime();
+            var target_date = new Date("April 1 2022").getTime();
 
             /* var date = new Date();
             date.setDate(date.getDate() + 3);
